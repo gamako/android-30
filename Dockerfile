@@ -10,7 +10,7 @@ ENV ANDROID_SDK       ${ANDROID_HOME}
 ENV PATH "${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
 ENV PATH "${PATH}:${ANDROID_HOME}/cmdline-tools/tools/bin"
 ENV PATH "${PATH}:${ANDROID_HOME}/tools/bin"
-ENV PATH "${PATH}:${ANDROID_HOME}/build-tools/30.0.3"
+ENV PATH "${PATH}:${ANDROID_HOME}/build-tools/30.0.2"
 ENV PATH "${PATH}:${ANDROID_HOME}/platform-tools"
 ENV PATH "${PATH}:${ANDROID_HOME}/emulator"
 ENV PATH "${PATH}:${ANDROID_HOME}/bin"
@@ -29,10 +29,9 @@ WORKDIR /opt/android-sdk-linux
 RUN /opt/tools/entrypoint.sh built-in
 
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "cmdline-tools;latest"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;30.0.2"
+RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;31.0.0"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platform-tools"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platforms;android-30"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "cmake;3.6.4111459" "cmake;3.10.2.4988404" "ndk;21.3.6528147"
+RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platforms;android-31"
 
 RUN apt-get update && apt-get install -y gradle && \
     cd /tmp && \
